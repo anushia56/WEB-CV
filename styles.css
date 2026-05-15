@@ -42,26 +42,48 @@ button {
 .cursor {
   position: fixed;
   z-index: 10000;
-  width: 22px;
-  height: 22px;
-  border: 1px solid rgba(240, 238, 232, 0.82);
-  border-radius: 50%;
+  width: 9px;
+  height: 9px;
   pointer-events: none;
   transform: translate(-50%, -50%);
-  transition: width 180ms ease, height 180ms ease, border-color 180ms ease;
+  transition: transform 180ms ease;
 }
 
 .cursor span {
   position: absolute;
-  inset: 8px;
+  inset: 0;
   border-radius: 50%;
-  background: var(--teal);
+  background: var(--white);
+  box-shadow: 0 0 10px rgba(255, 107, 157, 0.78), 0 0 18px rgba(240, 238, 232, 0.36);
+}
+
+.cursor span::after {
+  position: absolute;
+  left: -9px;
+  top: 4px;
+  width: 15px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 107, 157, 0.7));
+  content: "";
+  transform: rotate(-28deg);
 }
 
 .cursor.is-hovering {
-  width: 46px;
-  height: 46px;
-  border-color: var(--teal);
+  transform: translate(-50%, -50%) scale(1.35);
+}
+
+.cursor-trail span {
+  position: fixed;
+  z-index: 9999;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 107, 157, 0.55);
+  box-shadow: 0 0 12px rgba(255, 107, 157, 0.28);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity 160ms ease;
 }
 
 .loader {
@@ -1589,7 +1611,8 @@ p {
     cursor: pointer;
   }
 
-  .cursor {
+  .cursor,
+  .cursor-trail {
     display: none;
   }
 

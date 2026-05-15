@@ -1,19 +1,20 @@
 ﻿diff --git a/index.html b/index.html
 new file mode 100644
-index 0000000..86b170a
+index 0000000..d441782
 --- /dev/null
 +++ b/index.html
-@@ -0,0 +1,398 @@
+@@ -0,0 +1,402 @@
 +<!DOCTYPE html>
 +<html lang="en">
 +  <head>
 +    <meta charset="UTF-8" />
 +    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-+    <title>Anushia Subba | Cosmic Designer Portfolio</title>
++    <title>Anushia Subba</title>
 +    <meta
 +      name="description"
 +      content="Anushia Subba portfolio: CS graduate, fullstack developer, and UI/UX specialist."
 +    />
++    <link rel="icon" type="image/png" href="logo.png" />
 +    <link rel="preconnect" href="https://fonts.googleapis.com" />
 +    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 +    <link
@@ -24,6 +25,9 @@ index 0000000..86b170a
 +  </head>
 +  <body>
 +    <div class="cursor" aria-hidden="true"><span></span></div>
++    <div class="cursor-trail" aria-hidden="true">
++      <span></span><span></span><span></span><span></span><span></span>
++    </div>
 +
 +    <div class="loader" id="loader" aria-label="Loading portfolio">
 +      <div class="teacup" aria-hidden="true">
@@ -74,7 +78,7 @@ index 0000000..86b170a
 +          </p>
 +          <div class="hero-actions" aria-label="Hero actions">
 +            <a href="./cv.pdf" download="cv.pdf">↓ Download CV</a>
-+            <a href="https://www.linkedin.com/in/anushia-subba" target="_blank" rel="noopener noreferrer">in LinkedIn</a>
++            <a href="https://www.linkedin.com/in/anushia-subba" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 +            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anushiasubba04@gmail.com" target="_blank" rel="noopener noreferrer">✉ Say Hello</a>
 +          </div>
 +        </div>
@@ -112,11 +116,11 @@ index 0000000..86b170a
 +              because the idea is always louder than the deadline.
 +            </p>
 +            <div class="stat-row" aria-label="Profile highlights">
-+              <span>CS Graduate · 2022–2026</span>
++              <span>CS Graduate</span>
 +              <span>Fullstack + UI/UX</span>
 +              <span>Thimphu, Bhutan</span>
 +            </div>
-+            <p class="eyebrow values-title">core values</p>
++            <p class="eyebrow values-title"> <br> core values</p>
 +            <div class="values-grid" aria-label="Core values">
 +              <article>
 +                <span>01</span>
@@ -223,7 +227,7 @@ index 0000000..86b170a
 +      <section class="projects section" id="projects">
 +        <div class="section-shell">
 +          <div class="section-heading reveal">
-+            <p class="eyebrow">selected projects</p>
++            <p class="eyebrow">projects</p>
 +            <h2>Interface systems with a little gravity.</h2>
 +          </div>
 +          <div class="project-stack">
@@ -232,7 +236,7 @@ index 0000000..86b170a
 +              <div class="project-content">
 +                <span class="project-number">01</span>
 +                <h3>Thim Dorji Resort</h3>
-+                <p class="project-date">Aug – Nov 2025</p>
++                <p class="project-date">2025</p>
 +                <p>
 +                  A fully responsive resort website built for real guests.
 +                  Visitors can explore facilities, browse rooms, and check live
@@ -242,7 +246,7 @@ index 0000000..86b170a
 +                  code.
 +                </p>
 +                <div class="tech-list">
-+                  <span>React</span><span>Node.js</span><span>MySQL</span><span>Figma</span>
++                  <span>React</span><span>Node.js</span><span>MySQL</span>
 +                </div>
 +              </div>
 +            </article>
@@ -251,7 +255,7 @@ index 0000000..86b170a
 +              <div class="project-content">
 +                <span class="project-number">02</span>
 +                <h3>Tourify</h3>
-+                <p class="project-date">Tourism Management Platform · Feb – May 2025</p>
++                <p class="project-date">Tourism Management Platform · 2025</p>
 +                <p>
 +                  A multi-stakeholder tourism platform designed around three
 +                  distinct user roles: tourists who browse and book travel
@@ -261,7 +265,7 @@ index 0000000..86b170a
 +                  flows across all three experiences.
 +                </p>
 +                <div class="tech-list">
-+                  <span>React</span><span>Node.js</span><span>MySQL</span><span>Figma</span>
++                  <span>React</span><span>React Native</span><span>Node.js</span><span>MySQL</span>
 +                </div>
 +              </div>
 +            </article>
@@ -270,7 +274,7 @@ index 0000000..86b170a
 +              <div class="project-content">
 +                <span class="project-number">03</span>
 +                <h3>GCIT News App</h3>
-+                <p class="project-date">Feb – May 2024</p>
++                <p class="project-date">2024</p>
 +                <p>
 +                  A cross-platform mobile app built to keep Gyalpozhing College
 +                  of Information Technology students connected to campus life.
@@ -280,7 +284,7 @@ index 0000000..86b170a
 +                  functionality and a role-managed content system.
 +                </p>
 +                <div class="tech-list">
-+                  <span>React Native</span><span>Node.js</span><span>MySQL</span><span>Figma</span>
++                  <span>React Native</span><span>Node.js</span><span>MySQL</span>
 +                </div>
 +              </div>
 +            </article>
@@ -362,8 +366,8 @@ index 0000000..86b170a
 +          </div>
 +          <h3 class="log-label reveal">Certifications</h3>
 +          <div class="cert-grid reveal" aria-label="Achievements and certifications">
-+            <span>✓ Google UX Design Professional Certificate · Google / Coursera · 7-course series · Sep – Nov 2025</span>
-+            <span>✓ AWS Academy Graduate, Cloud Foundations · Amazon Web Services · Oct 2024</span>
++            <span>✓ Google UX Design Professional · 7-course series · 2025</span>
++            <span>✓ AWS Academy Graduate · Cloud Foundations · 2024</span>
 +          </div>
 +        </div>
 +      </section>
@@ -404,10 +408,10 @@ index 0000000..86b170a
 +</html>
 diff --git a/styles.css b/styles.css
 new file mode 100644
-index 0000000..5420202
+index 0000000..3f57c4d
 --- /dev/null
 +++ b/styles.css
-@@ -0,0 +1,1670 @@
+@@ -0,0 +1,1693 @@
 +﻿:root {
 +  --space: #0a0a0f;
 +  --charcoal: #141418;
@@ -452,26 +456,48 @@ index 0000000..5420202
 +.cursor {
 +  position: fixed;
 +  z-index: 10000;
-+  width: 22px;
-+  height: 22px;
-+  border: 1px solid rgba(240, 238, 232, 0.82);
-+  border-radius: 50%;
++  width: 9px;
++  height: 9px;
 +  pointer-events: none;
 +  transform: translate(-50%, -50%);
-+  transition: width 180ms ease, height 180ms ease, border-color 180ms ease;
++  transition: transform 180ms ease;
 +}
 +
 +.cursor span {
 +  position: absolute;
-+  inset: 8px;
++  inset: 0;
 +  border-radius: 50%;
-+  background: var(--teal);
++  background: var(--white);
++  box-shadow: 0 0 10px rgba(255, 107, 157, 0.78), 0 0 18px rgba(240, 238, 232, 0.36);
++}
++
++.cursor span::after {
++  position: absolute;
++  left: -9px;
++  top: 4px;
++  width: 15px;
++  height: 1px;
++  background: linear-gradient(90deg, transparent, rgba(255, 107, 157, 0.7));
++  content: "";
++  transform: rotate(-28deg);
 +}
 +
 +.cursor.is-hovering {
-+  width: 46px;
-+  height: 46px;
-+  border-color: var(--teal);
++  transform: translate(-50%, -50%) scale(1.35);
++}
++
++.cursor-trail span {
++  position: fixed;
++  z-index: 9999;
++  width: 4px;
++  height: 4px;
++  border-radius: 50%;
++  background: rgba(255, 107, 157, 0.55);
++  box-shadow: 0 0 12px rgba(255, 107, 157, 0.28);
++  opacity: 0;
++  pointer-events: none;
++  transform: translate(-50%, -50%);
++  transition: opacity 160ms ease;
 +}
 +
 +.loader {
@@ -1999,7 +2025,8 @@ index 0000000..5420202
 +    cursor: pointer;
 +  }
 +
-+  .cursor {
++  .cursor,
++  .cursor-trail {
 +    display: none;
 +  }
 +
@@ -2080,16 +2107,17 @@ index 0000000..5420202
 +
 diff --git a/script.js b/script.js
 new file mode 100644
-index 0000000..c8ade40
+index 0000000..69e75b3
 --- /dev/null
 +++ b/script.js
-@@ -0,0 +1,315 @@
+@@ -0,0 +1,346 @@
 +const loader = document.querySelector("#loader");
 +const header = document.querySelector("#siteHeader");
 +const navLinks = [...document.querySelectorAll(".main-nav a")];
 +const sections = [...document.querySelectorAll("main section[id]")];
 +const revealItems = [...document.querySelectorAll(".reveal")];
 +const cursor = document.querySelector(".cursor");
++const cursorTrail = [...document.querySelectorAll(".cursor-trail span")];
 +const stage = document.querySelector("#skillsStage");
 +const planets = [...document.querySelectorAll(".planet")];
 +const chips = [...document.querySelectorAll(".skill-chips button")];
@@ -2246,10 +2274,40 @@ index 0000000..c8ade40
 +});
 +
 +if (cursor) {
++  let cursorTarget = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
++  let cursorPosition = { ...cursorTarget };
++  const trailPoints = cursorTrail.map(() => ({ ...cursorTarget }));
++
 +  window.addEventListener("pointermove", (event) => {
-+    cursor.style.left = `${event.clientX}px`;
-+    cursor.style.top = `${event.clientY}px`;
++    cursorTarget = { x: event.clientX, y: event.clientY };
++    cursorTrail.forEach((dot) => {
++      dot.style.opacity = "1";
++    });
 +  });
++
++  function animateCursor() {
++    cursorPosition.x += (cursorTarget.x - cursorPosition.x) * 0.32;
++    cursorPosition.y += (cursorTarget.y - cursorPosition.y) * 0.32;
++    cursor.style.left = `${cursorPosition.x}px`;
++    cursor.style.top = `${cursorPosition.y}px`;
++
++    let followX = cursorPosition.x;
++    let followY = cursorPosition.y;
++    cursorTrail.forEach((dot, index) => {
++      const point = trailPoints[index];
++      point.x += (followX - point.x) * (0.22 - index * 0.025);
++      point.y += (followY - point.y) * (0.22 - index * 0.025);
++      dot.style.left = `${point.x}px`;
++      dot.style.top = `${point.y}px`;
++      dot.style.opacity = `${0.28 - index * 0.04}`;
++      followX = point.x;
++      followY = point.y;
++    });
++
++    requestAnimationFrame(animateCursor);
++  }
++
++  animateCursor();
 +
 +  document.querySelectorAll("a, button").forEach((item) => {
 +    item.addEventListener("pointerenter", () => cursor.classList.add("is-hovering"));

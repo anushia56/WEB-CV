@@ -4,6 +4,7 @@ const navLinks = [...document.querySelectorAll(".main-nav a")];
 const sections = [...document.querySelectorAll("main section[id]")];
 const revealItems = [...document.querySelectorAll(".reveal")];
 const cursor = document.querySelector(".cursor");
+const cursorTrail = [...document.querySelectorAll(".cursor-trail span")];
 const stage = document.querySelector("#skillsStage");
 const planets = [...document.querySelectorAll(".planet")];
 const chips = [...document.querySelectorAll(".skill-chips button")];
@@ -160,10 +161,40 @@ window.addEventListener("scroll", () => {
 });
 
 if (cursor) {
+  let cursorTarget = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+  let cursorPosition = { ...cursorTarget };
+  const trailPoints = cursorTrail.map(() => ({ ...cursorTarget }));
+
   window.addEventListener("pointermove", (event) => {
-    cursor.style.left = `${event.clientX}px`;
-    cursor.style.top = `${event.clientY}px`;
+    cursorTarget = { x: event.clientX, y: event.clientY };
+    cursorTrail.forEach((dot) => {
+      dot.style.opacity = "1";
+    });
   });
+
+  function animateCursor() {
+    cursorPosition.x += (cursorTarget.x - cursorPosition.x) * 0.32;
+    cursorPosition.y += (cursorTarget.y - cursorPosition.y) * 0.32;
+    cursor.style.left = `${cursorPosition.x}px`;
+    cursor.style.top = `${cursorPosition.y}px`;
+
+    let followX = cursorPosition.x;
+    let followY = cursorPosition.y;
+    cursorTrail.forEach((dot, index) => {
+      const point = trailPoints[index];
+      point.x += (followX - point.x) * (0.22 - index * 0.025);
+      point.y += (followY - point.y) * (0.22 - index * 0.025);
+      dot.style.left = `${point.x}px`;
+      dot.style.top = `${point.y}px`;
+      dot.style.opacity = `${0.28 - index * 0.04}`;
+      followX = point.x;
+      followY = point.y;
+    });
+
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
 
   document.querySelectorAll("a, button").forEach((item) => {
     item.addEventListener("pointerenter", () => cursor.classList.add("is-hovering"));

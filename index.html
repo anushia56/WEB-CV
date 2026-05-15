@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anushia Subba | Cosmic Designer Portfolio</title>
+    <meta
+      name="description"
+      content="Anushia Subba portfolio: CS graduate, fullstack developer, and UI/UX specialist."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="cursor" aria-hidden="true"><span></span></div>
+
+    <div class="loader" id="loader" aria-label="Loading portfolio">
+      <div class="teacup" aria-hidden="true">
+        <svg viewBox="0 0 180 150" role="img">
+          <path class="steam steam-one" d="M70 47c-18-21 17-25 0-48" />
+          <path class="steam steam-two" d="M94 47c-18-21 17-25 0-48" />
+          <path class="steam steam-three" d="M118 47c-18-21 17-25 0-48" />
+          <ellipse class="saucer" cx="90" cy="126" rx="58" ry="10" />
+          <path
+            class="cup"
+            d="M44 58h82c-3 42-16 64-41 64S47 100 44 58Z"
+          />
+          <path class="rim" d="M48 58c10 8 62 8 74 0" />
+          <path class="handle" d="M126 69c24 0 24 36 1 36" />
+        </svg>
+      </div>
+      <div class="orbital-loader"><span></span></div>
+      <p>brewing something special...</p>
+    </div>
+
+    <header class="site-header" id="siteHeader">
+      <a class="brand-mark" href="#home" aria-label="Anushia Subba home">
+        <img src="logo.png" alt="Anushia Subba logo" />
+      </a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section" id="home">
+        <div class="starfield" aria-hidden="true"></div>
+        <div class="hero-copy reveal">
+          <h1>ANUSHIA<br />SUBBA</h1>
+          <div class="title-rotator" aria-label="Professional titles">
+            <span>UI/UX Designer</span>
+            <span>Fullstack Developer</span>
+            <span>Creative Engineer</span>
+          </div>
+          <div class="teal-rule"></div>
+          <p class="hero-meta">
+            Building interfaces that feel as good as they look,<br />
+            from Bhutan, for the world.
+          </p>
+          <div class="hero-actions" aria-label="Hero actions">
+            <a href="./cv.pdf" download="cv.pdf">↓ Download CV</a>
+            <a href="https://www.linkedin.com/in/anushia-subba" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anushiasubba04@gmail.com" target="_blank" rel="noopener noreferrer">✉ Say Hello</a>
+          </div>
+        </div>
+        <button class="signature-planet" type="button" aria-label="Designer signature">
+          <span class="tooltip">Yes, I designed this.</span>
+        </button>
+        <a class="scroll-cue" href="#about" aria-label="Scroll to about section">
+          <span></span>
+        </a>
+      </section>
+
+      <section class="about section" id="about">
+        <div class="section-shell about-grid">
+          <div class="about-copy reveal">
+            <p class="eyebrow">about me</p>
+            <h2>Designing calm systems for a fast-moving world.</h2>
+            <p>
+              I turn caffeine and curiosity into digital experiences. Based in
+              Bhutan, I live at the intersection of design and code, the place
+              where a thing doesn't just work, it feels right. I studied
+              Computer Science at Gyalpozhing College of Information Technology,
+              but somewhere between the algorithms and the all-nighters, I fell
+              in love with the craft of building interfaces that people actually
+              enjoy using.
+            </p>
+            <p>
+              I think in systems and feel in pixels. I obsess over spacing,
+              sweat the small interactions, and genuinely believe that good
+              design is invisible. You only notice it when it's missing. On the
+              engineering side, I build full-stack, frontend to backend, mobile
+              to web, database to deployment.
+            </p>
+            <p>
+              When I'm not building things, I'm probably sketching the next one,
+              because the idea is always louder than the deadline.
+            </p>
+            <div class="stat-row" aria-label="Profile highlights">
+              <span>CS Graduate</span>
+              <span>Fullstack + UI/UX</span>
+              <span>Thimphu, Bhutan</span>
+            </div>
+            <p class="eyebrow values-title"> <br> core values</p>
+            <div class="values-grid" aria-label="Core values">
+              <article>
+                <span>01</span>
+                <h3>Integrity</h3>
+                <p>Building trust through honest, clean code.</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h3>Empathy</h3>
+                <p>Designing with people and context in mind.</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h3>Simplicity</h3>
+                <p>Turning complexity into clear experiences.</p>
+              </article>
+              <article>
+                <span>04</span>
+                <h3>Adaptability</h3>
+                <p>Thriving in changing technical landscapes.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="skills section" id="skills">
+        <div class="ghost-title" aria-hidden="true">SKILLS</div>
+        <div class="skills-stage" id="skillsStage">
+          <button class="back-skill" id="backSkill" type="button" aria-label="Back to skills">
+            ←
+          </button>
+          <div class="orrery" aria-label="Interactive skills solar system">
+            <div class="orbit-track track-html"></div>
+            <div class="orbit-track track-javascript"></div>
+            <div class="orbit-track track-react"></div>
+            <div class="orbit-track track-reactnative"></div>
+            <div class="orbit-track track-node"></div>
+            <div class="orbit-track track-mysql"></div>
+            <div class="orbit-track track-figma"></div>
+            <div class="orbit-track track-kali"></div>
+            <div class="sun"></div>
+            <div class="orbit-shell shell-html">
+              <button class="planet html" data-skill="html" type="button">
+                <span>HTML/CSS</span>
+              </button>
+            </div>
+            <div class="orbit-shell shell-javascript">
+              <button class="planet javascript" data-skill="javascript" type="button">
+                <span>JavaScript</span>
+              </button>
+            </div>
+            <div class="orbit-shell shell-react">
+              <button class="planet react" data-skill="react" type="button">
+                <span>React</span>
+              </button>
+            </div>
+            <div class="orbit-shell shell-reactnative">
+              <button class="planet reactnative" data-skill="reactnative" type="button">
+                <span>React Native</span>
+              </button>
+            </div>
+            <div class="orbit-shell shell-node">
+              <button class="planet node" data-skill="node" type="button">
+                <span>Node.js</span>
+              </button>
+            </div>
+            <div class="orbit-shell shell-mysql">
+              <button class="planet mysql" data-skill="mysql" type="button">
+                <span>MySQL</span>
+              </button>
+            </div>
+            <div class="orbit-shell shell-figma">
+              <button class="planet figma" data-skill="figma" type="button">
+                <span>Figma</span>
+              </button>
+            </div>
+            <div class="orbit-shell shell-kali">
+              <button class="planet kali" data-skill="kali" type="button">
+                <span>Kali Linux</span>
+              </button>
+            </div>
+          </div>
+          <aside class="skill-detail" id="skillDetail" aria-live="polite">
+            <p>PLANET:</p>
+            <h2 id="skillName">Figma</h2>
+            <p>INFO:</p>
+            <div id="skillInfo"></div>
+          </aside>
+          <div class="skill-tooltip" id="skillTooltip" role="status" aria-hidden="true"></div>
+        </div>
+        <div class="skill-chips" aria-label="Skill shortcuts">
+          <button data-skill="react">REACT</button>
+          <button data-skill="reactnative">REACT NATIVE</button>
+          <button data-skill="node">NODE.JS</button>
+          <button data-skill="javascript">JAVASCRIPT</button>
+          <button data-skill="mysql">MYSQL</button>
+          <button data-skill="figma">FIGMA</button>
+          <button data-skill="html">HTML·CSS</button>
+          <button data-skill="kali">KALI LINUX</button>
+        </div>
+      </section>
+
+      <section class="projects section" id="projects">
+        <div class="section-shell">
+          <div class="section-heading reveal">
+            <p class="eyebrow">projects</p>
+            <h2>Interface systems with a little gravity.</h2>
+          </div>
+          <div class="project-stack">
+            <article class="project-card reveal">
+<img class="project-image" src="resort.png" alt="Thim Dorji Resort project screenshot" />
+              <div class="project-content">
+                <span class="project-number">01</span>
+                <h3>Thim Dorji Resort</h3>
+                <p class="project-date">2025</p>
+                <p>
+                  A fully responsive resort website built for real guests.
+                  Visitors can explore facilities, browse rooms, and check live
+                  availability, all from a clean and intuitive interface. Behind
+                  the scenes, a custom backend CMS gives administrators full
+                  control to manage and update resort content without touching
+                  code.
+                </p>
+                <div class="tech-list">
+                  <span>React</span><span>Node.js</span><span>MySQL</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card reveal">
+<img class="project-image" src="tourify.png" alt="Tourify project screenshot" />
+              <div class="project-content">
+                <span class="project-number">02</span>
+                <h3>Tourify</h3>
+                <p class="project-date">Tourism Management Platform · 2025</p>
+                <p>
+                  A multi-stakeholder tourism platform designed around three
+                  distinct user roles: tourists who browse and book travel
+                  packages, agencies who manage their own services and
+                  reservations, and admins who oversee the entire ecosystem.
+                  Built with role-based interfaces and a focus on seamless user
+                  flows across all three experiences.
+                </p>
+                <div class="tech-list">
+                  <span>React</span><span>React Native</span><span>Node.js</span><span>MySQL</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card reveal">
+<img class="project-image" src="news.png" alt="GCIT News App screenshot" />
+              <div class="project-content">
+                <span class="project-number">03</span>
+                <h3>GCIT News App</h3>
+                <p class="project-date">2024</p>
+                <p>
+                  A cross-platform mobile app built to keep Gyalpozhing College
+                  of Information Technology students connected to campus life.
+                  Students can browse real-time news, comment on posts, and save
+                  favourites, all in one clean and fast interface. Built with
+                  React Native and a Node.js backend, with full CRUD
+                  functionality and a role-managed content system.
+                </p>
+                <div class="tech-list">
+                  <span>React Native</span><span>Node.js</span><span>MySQL</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="mission section" id="experience">
+        <div class="section-shell">
+          <div class="section-heading reveal">
+            <p class="eyebrow">mission log</p>
+            <h2>Education & certifications.</h2>
+          </div>
+          <h3 class="log-label reveal">Education</h3>
+          <div class="timeline">
+            <article class="timeline-card reveal">
+              <span class="timeline-dot"></span>
+              <div>
+                <h3>Gyalpozhing College of Information Technology</h3>
+                <p>B.Sc. in Computer Science, Full-Stack Development</p>
+              </div>
+              <time>2022 – 2026</time>
+            </article>
+            <article class="timeline-card reveal">
+              <span class="timeline-dot"></span>
+              <div>
+                <h3>Samtse Higher Secondary School</h3>
+                <p>High School, Pure Science</p>
+              </div>
+              <time>2018 – 2021</time>
+            </article>
+          </div>
+          <h3 class="log-label reveal">Experience</h3>
+          <div class="timeline">
+            <article class="timeline-card reveal">
+              <span class="timeline-dot"></span>
+              <div>
+                <h3>Executive Committee Member · Integrity Club, GCIT</h3>
+                <p>Co-led club initiatives and events, coordinating between members and college administration.</p>
+              </div>
+              <time>2025</time>
+            </article>
+            <article class="timeline-card reveal">
+              <span class="timeline-dot"></span>
+              <div>
+                <h3>Member · Integrity Club, GCIT</h3>
+                <p>Participated in club-organised events and campus activities.</p>
+              </div>
+              <time>2022 – 2025</time>
+            </article>
+            <article class="timeline-card reveal">
+              <span class="timeline-dot"></span>
+              <div>
+                <h3>Member · Tarayana Club, GCIT</h3>
+                <p>Community outreach and social impact activities.</p>
+              </div>
+              <time>2022 – 2024</time>
+            </article>
+            <article class="timeline-card reveal">
+              <span class="timeline-dot"></span>
+              <div>
+                <h3>Member · Literary and Interactive Club (LIA), GCIT</h3>
+                <p>Strengthened communication and creative skills through literary and interactive activities.</p>
+              </div>
+              <time>2022 – 2024</time>
+            </article>
+            <article class="timeline-card achievement-card reveal">
+              <span class="timeline-dot"></span>
+              <div>
+                <h3>Bhutan Capture the Flag 2025 (Entry Tier) · 2nd Place</h3>
+                <p>
+                  National cybersecurity competition organised by GCIT, GovTech
+                  Agency and JNEC. Demonstrated skills in network security,
+                  cryptography, and analytical problem-solving.
+                </p>
+              </div>
+              <time>2025</time>
+            </article>
+          </div>
+          <h3 class="log-label reveal">Certifications</h3>
+          <div class="cert-grid reveal" aria-label="Achievements and certifications">
+            <span>✓ Google UX Design Professional · 7-course series · 2025</span>
+            <span>✓ AWS Academy Graduate · Cloud Foundations · 2024</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section" id="contact">
+        <div class="contact-ghost" aria-hidden="true">SIGNAL SENT?</div>
+        <div class="radar" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="contact-content reveal">
+          <p class="contact-intro">
+            Open to opportunities, collabs, and good ideas.<br />
+            Point your signal here.
+          </p>
+          <div class="transmission-links" aria-label="Transmission links">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=anushiasubba04@gmail.com" target="_blank" rel="noopener noreferrer">
+              <span class="signal-icon">📡</span>
+              <span class="type-line" data-type="anushiasubba04@gmail.com"></span>
+            </a>
+            <a href="https://www.linkedin.com/in/anushia-subba" target="_blank" rel="noopener noreferrer">
+              <span class="signal-icon">🛰</span>
+              <span class="type-line" data-type="linkedin.com/in/anushia-subba"></span>
+            </a>
+          </div>
+          <p class="availability-strip">Anushia Subba · Thimphu, Bhutan · Available for work</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Anushia Subba. All rights reserved. <span aria-hidden="true">🪐</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="cursor" aria-hidden="true"><span></span></div>
+    <div class="cursor" aria-hidden="true"><span class="cursor-dot"></span></div>
     <div class="cursor-trail" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span>
     </div>
@@ -77,6 +77,13 @@
           </div>
         </div>
         <button class="signature-planet" type="button" aria-label="Designer signature">
+          <svg class="planet-ring-svg planet-ring-back" viewBox="0 0 120 44" aria-hidden="true" focusable="false">
+            <path d="M 6 22 A 54 15 0 0 1 114 22" />
+          </svg>
+          <span class="planet-core" aria-hidden="true"></span>
+          <svg class="planet-ring-svg planet-ring-front" viewBox="0 0 120 44" aria-hidden="true" focusable="false">
+            <path d="M 114 22 A 54 15 0 0 1 6 22" />
+          </svg>
           <span class="tooltip">Yes, I designed this.</span>
         </button>
         <a class="scroll-cue" href="#about" aria-label="Scroll to about section">
@@ -327,7 +334,7 @@
                 <h3>Member · Integrity Club, GCIT</h3>
                 <p>Participated in club-organised events and campus activities.</p>
               </div>
-              <time>2022 – 2025</time>
+              <time>2022 – 2026</time>
             </article>
             <article class="timeline-card reveal">
               <span class="timeline-dot"></span>
@@ -394,8 +401,12 @@
     </main>
 
     <footer class="site-footer">
-      <p>© 2025 Anushia Subba. All rights reserved. <span aria-hidden="true">🪐</span></p>
+      <p>© 2026 Anushia Subba. All rights reserved. <span aria-hidden="true">🪐</span></p>
     </footer>
+
+    <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+      <span></span>
+    </button>
 
     <script src="script.js"></script>
   </body>

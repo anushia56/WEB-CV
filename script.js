@@ -13,6 +13,7 @@ const skillName = document.querySelector("#skillName");
 const skillInfo = document.querySelector("#skillInfo");
 const typeLines = [...document.querySelectorAll(".type-line")];
 const skillTooltip = document.querySelector("#skillTooltip");
+const backToTop = document.querySelector("#backToTop");
 
 const skillCopy = {
   react: {
@@ -158,23 +159,35 @@ window.addEventListener("load", () => {
 
 window.addEventListener("scroll", () => {
   header.classList.toggle("is-scrolled", window.scrollY > 18);
+  backToTop?.classList.toggle("is-visible", window.scrollY > 300);
+});
+
+backToTop?.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 if (cursor) {
   let cursorTarget = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
   let cursorPosition = { ...cursorTarget };
   const trailPoints = cursorTrail.map(() => ({ ...cursorTarget }));
+  let trailFadeTimer;
 
   window.addEventListener("pointermove", (event) => {
     cursorTarget = { x: event.clientX, y: event.clientY };
     cursorTrail.forEach((dot) => {
       dot.style.opacity = "1";
     });
+    window.clearTimeout(trailFadeTimer);
+    trailFadeTimer = window.setTimeout(() => {
+      cursorTrail.forEach((dot) => {
+        dot.style.opacity = "0";
+      });
+    }, 120);
   });
 
   function animateCursor() {
-    cursorPosition.x += (cursorTarget.x - cursorPosition.x) * 0.32;
-    cursorPosition.y += (cursorTarget.y - cursorPosition.y) * 0.32;
+    cursorPosition.x += (cursorTarget.x - cursorPosition.x) * 0.42;
+    cursorPosition.y += (cursorTarget.y - cursorPosition.y) * 0.42;
     cursor.style.left = `${cursorPosition.x}px`;
     cursor.style.top = `${cursorPosition.y}px`;
 
@@ -182,11 +195,13 @@ if (cursor) {
     let followY = cursorPosition.y;
     cursorTrail.forEach((dot, index) => {
       const point = trailPoints[index];
-      point.x += (followX - point.x) * (0.22 - index * 0.025);
-      point.y += (followY - point.y) * (0.22 - index * 0.025);
+      point.x += (followX - point.x) * (0.24 - index * 0.025);
+      point.y += (followY - point.y) * (0.24 - index * 0.025);
       dot.style.left = `${point.x}px`;
       dot.style.top = `${point.y}px`;
-      dot.style.opacity = `${0.28 - index * 0.04}`;
+      if (dot.style.opacity !== "0") {
+        dot.style.opacity = `${0.6 - index * 0.1}`;
+      }
       followX = point.x;
       followY = point.y;
     });

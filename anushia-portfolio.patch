@@ -1,9 +1,9 @@
 ﻿diff --git a/index.html b/index.html
 new file mode 100644
-index 0000000..d441782
+index 0000000..74601a7
 --- /dev/null
 +++ b/index.html
-@@ -0,0 +1,402 @@
+@@ -0,0 +1,413 @@
 +<!DOCTYPE html>
 +<html lang="en">
 +  <head>
@@ -24,7 +24,7 @@ index 0000000..d441782
 +    <link rel="stylesheet" href="styles.css" />
 +  </head>
 +  <body>
-+    <div class="cursor" aria-hidden="true"><span></span></div>
++    <div class="cursor" aria-hidden="true"><span class="cursor-dot"></span></div>
 +    <div class="cursor-trail" aria-hidden="true">
 +      <span></span><span></span><span></span><span></span><span></span>
 +    </div>
@@ -83,6 +83,13 @@ index 0000000..d441782
 +          </div>
 +        </div>
 +        <button class="signature-planet" type="button" aria-label="Designer signature">
++          <svg class="planet-ring-svg planet-ring-back" viewBox="0 0 120 44" aria-hidden="true" focusable="false">
++            <path d="M 6 22 A 54 15 0 0 1 114 22" />
++          </svg>
++          <span class="planet-core" aria-hidden="true"></span>
++          <svg class="planet-ring-svg planet-ring-front" viewBox="0 0 120 44" aria-hidden="true" focusable="false">
++            <path d="M 114 22 A 54 15 0 0 1 6 22" />
++          </svg>
 +          <span class="tooltip">Yes, I designed this.</span>
 +        </button>
 +        <a class="scroll-cue" href="#about" aria-label="Scroll to about section">
@@ -400,18 +407,22 @@ index 0000000..d441782
 +    </main>
 +
 +    <footer class="site-footer">
-+      <p>© 2025 Anushia Subba. All rights reserved. <span aria-hidden="true">🪐</span></p>
++      <p>© 2026 Anushia Subba. All rights reserved. <span aria-hidden="true">🪐</span></p>
 +    </footer>
++
++    <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
++      <span></span>
++    </button>
 +
 +    <script src="script.js"></script>
 +  </body>
 +</html>
 diff --git a/styles.css b/styles.css
 new file mode 100644
-index 0000000..3f57c4d
+index 0000000..0a5c798
 --- /dev/null
 +++ b/styles.css
-@@ -0,0 +1,1693 @@
+@@ -0,0 +1,1788 @@
 +﻿:root {
 +  --space: #0a0a0f;
 +  --charcoal: #141418;
@@ -428,6 +439,11 @@ index 0000000..3f57c4d
 +
 +* {
 +  box-sizing: border-box;
++}
++
++::selection {
++  background: rgba(255, 107, 157, 0.34);
++  color: var(--white);
 +}
 +
 +html {
@@ -456,8 +472,8 @@ index 0000000..3f57c4d
 +.cursor {
 +  position: fixed;
 +  z-index: 10000;
-+  width: 9px;
-+  height: 9px;
++  width: 10px;
++  height: 10px;
 +  pointer-events: none;
 +  transform: translate(-50%, -50%);
 +  transition: transform 180ms ease;
@@ -465,39 +481,32 @@ index 0000000..3f57c4d
 +
 +.cursor span {
 +  position: absolute;
-+  inset: 0;
++  left: 50%;
++  top: 50%;
++  width: 10px;
++  height: 10px;
 +  border-radius: 50%;
 +  background: var(--white);
-+  box-shadow: 0 0 10px rgba(255, 107, 157, 0.78), 0 0 18px rgba(240, 238, 232, 0.36);
-+}
-+
-+.cursor span::after {
-+  position: absolute;
-+  left: -9px;
-+  top: 4px;
-+  width: 15px;
-+  height: 1px;
-+  background: linear-gradient(90deg, transparent, rgba(255, 107, 157, 0.7));
-+  content: "";
-+  transform: rotate(-28deg);
++  box-shadow: 0 0 8px rgba(240, 238, 232, 0.44), 0 0 14px rgba(255, 107, 157, 0.18);
++  transform: translate(-50%, -50%);
 +}
 +
 +.cursor.is-hovering {
-+  transform: translate(-50%, -50%) scale(1.35);
++  transform: translate(-50%, -50%) scale(1.45);
 +}
 +
 +.cursor-trail span {
 +  position: fixed;
 +  z-index: 9999;
-+  width: 4px;
-+  height: 4px;
++  width: 5px;
++  height: 5px;
 +  border-radius: 50%;
-+  background: rgba(255, 107, 157, 0.55);
-+  box-shadow: 0 0 12px rgba(255, 107, 157, 0.28);
++  background: rgba(255, 107, 157, 0.72);
++  box-shadow: 0 0 12px rgba(255, 107, 157, 0.32);
 +  opacity: 0;
 +  pointer-events: none;
 +  transform: translate(-50%, -50%);
-+  transition: opacity 160ms ease;
++  transition: opacity 520ms ease;
 +}
 +
 +.loader {
@@ -742,8 +751,8 @@ index 0000000..3f57c4d
 +.hero h1 {
 +  margin: 0;
 +  max-width: 1040px;
-+  font-size: clamp(5rem, 15vw, 13.8rem);
-+  line-height: 0.8;
++  font-size: clamp(4.8rem, 13.5vw, 12.5rem);
++  line-height: 0.82;
 +  letter-spacing: 0;
 +}
 +
@@ -815,27 +824,72 @@ index 0000000..3f57c4d
 +  position: absolute;
 +  right: min(7vw, 96px);
 +  bottom: 72px;
-+  width: 72px;
-+  height: 72px;
++  --planet-ring-tilt: -15deg;
++  --planet-ring-color: rgba(176, 119, 143, 0.58);
++  width: 78px;
++  height: 78px;
++  padding: 0;
 +  border: 0;
 +  border-radius: 50%;
++  appearance: none;
 +  background: transparent;
-+  box-shadow: 0 0 40px rgba(255, 107, 157, 0.34);
++  box-shadow: none;
++  isolation: isolate;
++  overflow: visible;
++  transition: filter 220ms ease, transform 220ms ease;
 +}
 +
-+.signature-planet::before {
++.planet-core {
 +  position: absolute;
-+  inset: 0;
++  inset: 8px;
++  z-index: 2;
 +  border-radius: 50%;
 +  background:
-+    linear-gradient(120deg, transparent 42%, rgba(240, 238, 232, 0.42) 43%, transparent 48%),
-+    radial-gradient(circle at 32% 30%, #ffd2e3, #ff6b9d 42%, #6f1239 75%);
++    radial-gradient(circle at 30% 24%, rgba(255, 221, 232, 0.34) 0 8%, transparent 9%),
++    radial-gradient(ellipse at 56% 44%, rgba(255, 184, 209, 0.16) 0 26%, transparent 28%),
++    radial-gradient(circle at 34% 28%, #ffd1e1 0 16%, #ff6b9d 42%, #b82660 68%, #4b0d2c 100%);
 +  content: "";
-+  animation: spin 9s linear infinite;
++  box-shadow:
++    inset -12px -14px 18px rgba(0, 0, 0, 0.42),
++    inset 5px 5px 12px rgba(255, 255, 255, 0.18);
++  animation: spin 11s linear infinite;
++}
++
++.planet-ring-svg {
++  position: absolute;
++  left: 50%;
++  top: 50%;
++  width: 120px;
++  height: 44px;
++  overflow: visible;
++  transform: translate(-50%, -50%) rotate(var(--planet-ring-tilt));
++  pointer-events: none;
++}
++
++.planet-ring-svg path {
++  fill: none;
++  stroke: var(--planet-ring-color);
++  stroke-width: 1.2;
++  stroke-linecap: round;
++  vector-effect: non-scaling-stroke;
++}
++
++.planet-ring-back {
++  z-index: 1;
++}
++
++.planet-ring-front {
++  z-index: 3;
++}
++
++.signature-planet:hover {
++  filter: brightness(1.12);
++  transform: translateY(-3px) scale(1.04);
 +}
 +
 +.tooltip {
 +  position: absolute;
++  z-index: 4;
 +  right: 4px;
 +  bottom: calc(100% + 14px);
 +  width: max-content;
@@ -860,37 +914,33 @@ index 0000000..3f57c4d
 +  position: absolute;
 +  left: 50%;
 +  bottom: 34px;
-+  width: 38px;
++  width: 34px;
 +  height: 58px;
 +  transform: translateX(-50%);
 +}
 +
-+.scroll-cue span,
-+.scroll-cue span::before,
-+.scroll-cue span::after {
++.scroll-cue span {
 +  position: absolute;
-+  width: 2px;
-+  height: 34px;
-+  background: var(--white);
-+  content: "";
-+  left: 18px;
++  left: 50%;
 +  top: 4px;
++  width: 2px;
++  height: 38px;
++  background: linear-gradient(180deg, var(--white), var(--teal));
++  transform: translateX(-50%);
 +  animation: pulse-down 1.8s ease-in-out infinite;
 +}
 +
-+.scroll-cue span::before,
 +.scroll-cue span::after {
-+  top: 24px;
-+  height: 18px;
-+  transform-origin: bottom;
-+}
-+
-+.scroll-cue span::before {
-+  transform: rotate(42deg);
-+}
-+
-+.scroll-cue span::after {
-+  transform: rotate(-42deg);
++  position: absolute;
++  left: 50%;
++  bottom: -1px;
++  width: 14px;
++  height: 14px;
++  border-right: 2px solid var(--teal);
++  border-bottom: 2px solid var(--teal);
++  content: "";
++  transform: translateX(-50%) rotate(45deg);
++  transform-origin: center;
 +}
 +
 +.about {
@@ -1037,7 +1087,7 @@ index 0000000..3f57c4d
 +  right: 0;
 +  top: 50%;
 +  transform: translateY(-50%);
-+  color: rgba(240, 238, 232, 0.035);
++  color: rgba(240, 238, 232, 0.055);
 +  font-size: clamp(7rem, 24vw, 22rem);
 +  line-height: 1;
 +  font-weight: 800;
@@ -1886,6 +1936,55 @@ index 0000000..3f57c4d
 +  animation: spin 8s linear infinite;
 +}
 +
++.back-to-top {
++  position: fixed;
++  right: 28px;
++  bottom: 28px;
++  z-index: 120;
++  width: 34px;
++  height: 58px;
++  border: 0;
++  background: transparent;
++  opacity: 0;
++  pointer-events: none;
++  transform: translateY(10px);
++  transition: opacity 220ms ease, transform 220ms ease;
++}
++
++.back-to-top span {
++  position: absolute;
++  left: 50%;
++  top: 16px;
++  width: 2px;
++  height: 38px;
++  background: linear-gradient(0deg, var(--white), var(--teal));
++  transform: translateX(-50%);
++  animation: pulse-up 1.8s ease-in-out infinite;
++}
++
++.back-to-top span::after {
++  position: absolute;
++  left: 50%;
++  top: -1px;
++  width: 14px;
++  height: 14px;
++  border-left: 2px solid var(--teal);
++  border-top: 2px solid var(--teal);
++  content: "";
++  transform: translateX(-50%) rotate(45deg);
++  transform-origin: center;
++}
++
++.back-to-top.is-visible {
++  opacity: 1;
++  pointer-events: auto;
++  transform: translateY(0);
++}
++
++.back-to-top:hover {
++  transform: translateY(-2px);
++}
++
 +.reveal {
 +  opacity: 0;
 +  transform: translateY(26px);
@@ -1952,6 +2051,13 @@ index 0000000..3f57c4d
 +  50% {
 +    opacity: 0.45;
 +    transform: translateY(9px);
++  }
++}
++
++@keyframes pulse-up {
++  50% {
++    opacity: 0.45;
++    transform: translateX(-50%) translateY(-9px);
 +  }
 +}
 +
@@ -2107,10 +2213,10 @@ index 0000000..3f57c4d
 +
 diff --git a/script.js b/script.js
 new file mode 100644
-index 0000000..69e75b3
+index 0000000..9735ed3
 --- /dev/null
 +++ b/script.js
-@@ -0,0 +1,346 @@
+@@ -0,0 +1,361 @@
 +const loader = document.querySelector("#loader");
 +const header = document.querySelector("#siteHeader");
 +const navLinks = [...document.querySelectorAll(".main-nav a")];
@@ -2126,6 +2232,7 @@ index 0000000..69e75b3
 +const skillInfo = document.querySelector("#skillInfo");
 +const typeLines = [...document.querySelectorAll(".type-line")];
 +const skillTooltip = document.querySelector("#skillTooltip");
++const backToTop = document.querySelector("#backToTop");
 +
 +const skillCopy = {
 +  react: {
@@ -2271,23 +2378,35 @@ index 0000000..69e75b3
 +
 +window.addEventListener("scroll", () => {
 +  header.classList.toggle("is-scrolled", window.scrollY > 18);
++  backToTop?.classList.toggle("is-visible", window.scrollY > 300);
++});
++
++backToTop?.addEventListener("click", () => {
++  window.scrollTo({ top: 0, behavior: "smooth" });
 +});
 +
 +if (cursor) {
 +  let cursorTarget = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 +  let cursorPosition = { ...cursorTarget };
 +  const trailPoints = cursorTrail.map(() => ({ ...cursorTarget }));
++  let trailFadeTimer;
 +
 +  window.addEventListener("pointermove", (event) => {
 +    cursorTarget = { x: event.clientX, y: event.clientY };
 +    cursorTrail.forEach((dot) => {
 +      dot.style.opacity = "1";
 +    });
++    window.clearTimeout(trailFadeTimer);
++    trailFadeTimer = window.setTimeout(() => {
++      cursorTrail.forEach((dot) => {
++        dot.style.opacity = "0";
++      });
++    }, 120);
 +  });
 +
 +  function animateCursor() {
-+    cursorPosition.x += (cursorTarget.x - cursorPosition.x) * 0.32;
-+    cursorPosition.y += (cursorTarget.y - cursorPosition.y) * 0.32;
++    cursorPosition.x += (cursorTarget.x - cursorPosition.x) * 0.42;
++    cursorPosition.y += (cursorTarget.y - cursorPosition.y) * 0.42;
 +    cursor.style.left = `${cursorPosition.x}px`;
 +    cursor.style.top = `${cursorPosition.y}px`;
 +
@@ -2295,11 +2414,13 @@ index 0000000..69e75b3
 +    let followY = cursorPosition.y;
 +    cursorTrail.forEach((dot, index) => {
 +      const point = trailPoints[index];
-+      point.x += (followX - point.x) * (0.22 - index * 0.025);
-+      point.y += (followY - point.y) * (0.22 - index * 0.025);
++      point.x += (followX - point.x) * (0.24 - index * 0.025);
++      point.y += (followY - point.y) * (0.24 - index * 0.025);
 +      dot.style.left = `${point.x}px`;
 +      dot.style.top = `${point.y}px`;
-+      dot.style.opacity = `${0.28 - index * 0.04}`;
++      if (dot.style.opacity !== "0") {
++        dot.style.opacity = `${0.6 - index * 0.1}`;
++      }
 +      followX = point.x;
 +      followY = point.y;
 +    });
